@@ -1,69 +1,96 @@
-// Week 2 – Functions and Collections
-// • Session 4: Functions, parameters, arrow syntax
-// • Session 5: Lists, Sets, Maps, basic operations
-// • Session 6: Practical exercises: build a simple CLI To-Do app
-
 void main() {
-  print(sum(2, 2));
-  print(minus());
-  print(minus(1, 4));
-  print(added(3, 3));
-  print(added(4, 4, 4));
-  //  named params
-  print(canAdd(b: 2, a: 3));
-  print(canMinus());
-  print(canMinus(a: 1, b: 8));
-  print(canMinusThree(a: 4, b: 2));
-  print(canMinusThree(a: 4, b: 2, c: 1));
-  // void function
-  i_return_nothing();
-  // application of arrow syntax
-  print(List.generate(4,
-    (index) => 4 // arrow syntax
-    ));
+  // • Session 3: Control flow: if, else, switch, loops
+
+  // if syntax  --- if (){} -----
+
+  // if (true) {
+  //   print('object');
+  // }
+
+  bool isActive = false;
+  bool haspaid = true;
+
+  if (isActive) {
+    print('is active');
+  }
+
+  if (isActive == true) {
+    print('is active');
+  }
+  //  AND
+  if (haspaid && isActive) {
+    print('is good to go');
+  }
+  //   OR
+  if (haspaid || isActive) {
+    print('is good to go');
+  }
+  // NOT
+  if (!haspaid) {
+    print('is good to go');
+  }
+
+  //  if else
+  if (isActive) {
+    print('is active');
+  } else {
+    print('is not active');
+  }
+
+  // if else if
+  if (haspaid) {
+    print('has paid');
+  } else if (isActive && isActive) {
+    print('has paid and is active');
+  } else {
+    print('i dont know about him');
+  }
+
+  //  switch case
+
+  String char = "B";
+
+  switch (char) {
+    case "B":
+      print("char is $char");
+      break;
+    case "A":
+      print('char is A');
+      break;
+    default:
+      print("Unknown");
+  }
+
+  int len = 6;
+  //  loops
+  // for loop
+  for (int i = 0; i < len; i++) {
+    print('$i');
+  }
+
+  //  while loop
+  while (len < 10) {
+    len++;
+    print(len);
+  }
+  bool keepRunning = true;
+  //  break loop
+  while (keepRunning) {
+    print(keepRunning);
+    break;
+  }
+  //  break and continue in loops
+  while (true) {
+    len++;
+    if (len < 6) {
+      continue;
+    } else {
+      break;
+    }
+  }
+  do {
+    print('len $len');
+  } while (len==6);
 }
 
-//  function that return int
-int add() {
-  return 0;
-}
 
-// functions with parameters unname
-
-int sum(int a, int b) {
-  return a + b;
-}
-
-// functions with optional params
-double minus([double a = 1, double b = 1]) {
-  return a - b;
-}
-
-// mixing optional un named with required unnamed
-
-int added(int a, int b, [int c = 0]) {
-  return a + b + c;
-}
-
-//  named parameters
-int canAdd({required int a, required int b}) {
-  return a + b;
-}
-
-//  named optional
-int canMinus({int a = 1, int b = 1}) {
-  return a - b;
-}
-
-// mixed optional and required named params
-double canMinusThree({required double a, required double b, double c = 0}) {
-  return a - b - c;
-}
-
-// function that return nothing
-void i_return_nothing() {
-  print('i return nothing');
-}
-
-//arrow syntax
-//()=>value
